@@ -7,14 +7,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isAuth = false;
-  constructor(){
+  appareils = [
+    {
+      name: "Machine à laver",
+      status: "allumé",
+    },
+    {
+      name: "Télévsion",
+      status: "allumé",
+    },
+    {
+      name: "Ordinateur",
+      status: "éteint",
+    },
+  ];
+  constructor() {
     setTimeout(() => {
       this.isAuth = true;
     }, 4000);
   }
-  onAllumer(){
+  onAllumer() {
     console.log('on Allumer Tout');
-    
+
   }
 }
 
