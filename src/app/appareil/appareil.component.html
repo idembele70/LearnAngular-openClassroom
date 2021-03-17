@@ -1,4 +1,5 @@
-<li class="list-group-item">
+<li ngClass="list-group-item : true, list-group-item-success : appareilStatus === 'allumer',
+list-group-item-danger === 'éteint'">
     <div style="width:20px; height: 20px; background-color: red;" *ngIf="appareilStatus === 'éteint'"
     ></div>
     <h4 [ngStyle]="{color: getColor()} ">Appareil : {{appareilName}} --- Status : {{getStatus()}} </h4>
