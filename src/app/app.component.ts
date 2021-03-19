@@ -7,14 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isAuth = false;
+
+  lastUpdate = new Date();
+  
   appareils = [
     {
       name: "Machine à laver",
-      status: "allumé",
+      status: "éteint",
     },
     {
       name: "Télévsion",
-      status: "allumé",
+      status: "allumer",
     },
     {
       name: "Ordinateur",

@@ -22,7 +22,7 @@ export class AppareilComponent implements OnInit {
 
   getColor() {
     switch (this.appareilStatus) {
-      case "allumé":
+      case "allumer":
         return 'green';
       case "éteint":
         return 'red';
