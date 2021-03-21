@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { promise } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +9,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   isAuth = false;
 
-  lastUpdate = new Date();
-  
+   lastUpdate = new Promise <string>(
+  (resolve, reject) => {
+      const date = Date();
+      setTimeout(() => {
+        resolve(date);
+      }, 2000);
+    }
+  );
+
   appareils = [
     {
       name: "Machine à laver",

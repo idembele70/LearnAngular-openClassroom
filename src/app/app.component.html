@@ -2,14 +2,10 @@
   <div class="row">
     <div class="col-xs-12">
       <h2 class="text-primary">Mes appareils</h2>
-
-<p class="text-success"> {{lastUpdate | date:'y MMMM EEEE d' | uppercase }} </p>
-
+      <p class="text-success">Mise à jour :  {{ lastUpdate | async | date:'yMMMMEEEEdd' | uppercase }} </p>
       <ul class="list-group">
-        <app-appareil *ngFor=" let appareil of appareils" 
-        [appareilName] ="appareil.name"
-        [appareilStatus] ="appareil.status"
-        ></app-appareil>
+        <app-appareil *ngFor=" let appareil of appareils" [appareilName]="appareil.name"
+          [appareilStatus]="appareil.status"></app-appareil>
       </ul>
       <button class="btn btn-success" type="submit" [disabled]="!isAuth" (click)="onAllumer()">Tout allumer</button>
     </div>
