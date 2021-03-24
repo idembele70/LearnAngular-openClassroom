@@ -1,4 +1,4 @@
-Stop : 55 minutes 34 Secondes.
+Stop : 1 Heure 06 Minutes 16 Secondes.
 
 # MonProjetAngular
 
