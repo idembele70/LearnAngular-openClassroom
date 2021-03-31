@@ -3,4 +3,6 @@
     <div style="width:20px; height: 20px; background-color: red;" *ngIf="appareilStatus === 'eteint'"></div>
     <h4 [ngStyle]="{color: getColor()} ">Appareil : {{appareilName}} --- Status : {{getStatus()}} </h4>
     <input type="text" class="form-control" [(ngModel)]="appareilName">
+    <button (click)="onSwitchOn()" class="btn btn-success">allumer</button>
+    <button (click)="onSwitchOff()" class="btn btn-success">éteindre</button>
 </li>
