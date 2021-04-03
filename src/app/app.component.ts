@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { promise } from 'selenium-webdriver';
 import { AppareilService } from './services/appareil.service';
 
 @Component({
@@ -7,7 +6,7 @@ import { AppareilService } from './services/appareil.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
   isAuth = false;
 
   lastUpdate = new Promise<string>(
