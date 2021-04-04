@@ -7,36 +7,35 @@ import { AppareilService } from '../services/appareil.service';
   styleUrls: ['./appareil-view.component.scss']
 })
 export class AppareilViewComponent implements OnInit {
-  
-  @Input() appareilName = "";
-  @Input() appareilStatus = "";
-  @Input() indexOfAppareil = 0;
-
-  constructor(private appareilService: AppareilService) {
-  }
-
-  ngOnInit(): void {
-  }
-
-  getStatus() {
-    return this.appareilStatus;
-  }
-
-  getColor() {
-    switch (this.appareilStatus) {
-      case "allumer":
-        return 'green';
-      case "éteint":
-        return 'red';
-      default:
-        return 'invalid color';
+  isAuth = false;
+  lastUpdate = new Promise<string>(
+    (resolve, reject) => {
+      const date = Date();
+      setTimeout(() => {
+        resolve(date);
+      }, 2000);
     }
+  );
+
+  appareils = <any>[];
+  constructor(private AppareilService: AppareilService) {
+
+    setTimeout(() => {
+      this.isAuth = true;
+    }, 4000);
   }
-  onSwitchOn() {
-    return this.appareilService.switchOnOne(this.indexOfAppareil);
+
+  ngOnInit() {
+    this.appareils = this.AppareilService.appareils;
   }
-  onSwitchOff() {
-    return this.appareilService.switchOffOne(this.indexOfAppareil);
+
+
+  onAllumer() {
+    this.AppareilService.switchOnAll();
+  }
+
+  onEteindre() {
+    this.AppareilService.switchOfAll();
   }
 
 }
