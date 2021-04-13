@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AppareilService } from '../services/appareil.service';
 
 
@@ -11,7 +12,6 @@ export class AppareilComponent {
   @Input() appareilName = "";
   @Input() appareilStatus = "";
   @Input() indexOfAppareil = 0;
-
   constructor(private appareilService: AppareilService) {
   }
 

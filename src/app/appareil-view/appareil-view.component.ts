@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppareilService } from '../services/appareil.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class AppareilViewComponent implements OnInit {
   );
 
   appareils = <any>[];
-  constructor(private AppareilService: AppareilService) {
+  constructor(private AppareilService: AppareilService, private router: Router) {
 
     setTimeout(() => {
       this.isAuth = true;
