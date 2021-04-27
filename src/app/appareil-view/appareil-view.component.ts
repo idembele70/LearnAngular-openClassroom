@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AppareilService } from '../services/appareil.service';
 
 @Component({
@@ -19,7 +20,8 @@ export class AppareilViewComponent implements OnInit {
   );
 
   appareils = <any>[];
-  constructor(private AppareilService: AppareilService, private router: Router) {
+  appareilSubscription = new Subscription();
+  constructor(private appareilService: AppareilService, private router: Router) {
 
     setTimeout(() => {
       this.isAuth = true;
@@ -27,16 +29,18 @@ export class AppareilViewComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.appareils = this.AppareilService.appareils;
+    this.appareilSubscription = this.appareilService.appareilSubject.subscribe(
+      (appareil: any[]) => this.appareils = appareil);
+    this.appareilService.emitAppareilSubject();
   }
 
 
   onAllumer() {
-    this.AppareilService.switchOnAll();
+    this.appareilService.switchOnAll();
   }
 
   onEteindre() {
-    this.AppareilService.switchOfAll();
+    this.appareilService.switchOfAll();
   }
 
 }
